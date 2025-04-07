@@ -1,7 +1,6 @@
 "use server";
 
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { log } from "console";
 
 // Initialize the Google Generative AI with your API key
 const genAI = new GoogleGenerativeAI(process.env.GOOGLE_API_KEY as string);
@@ -33,7 +32,6 @@ export async function getRecommendations(location: string) {
 
     // Generate content
     const result = await model.generateContent(prompt);
-    console.log(result);
     const response = await result.response;
     const text = response.text();
 
